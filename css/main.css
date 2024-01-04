@@ -14,12 +14,10 @@ header{
 }
 footer{
     display: block;
-    border: soild 1px red;
 }
 /* ids */
 #header{
     display: block;
-    border: solid 1px blue;
     padding: 5px 5px 5px 5px;
 }
 
