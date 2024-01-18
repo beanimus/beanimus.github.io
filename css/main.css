@@ -3,19 +3,21 @@ html{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: lightgrey;
     align-items: center;
+    text-align: center;
 }
 header{
     display: block;
-    border: 5px black;
     padding: 5px 5px 5px 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
     font-weight: bold;
 }
+footer{
+    display: block;
+}
 /* ids */
 #header{
     display: block;
-    border: 3px blue;
     padding: 5px 5px 5px 5px;
 }
 
