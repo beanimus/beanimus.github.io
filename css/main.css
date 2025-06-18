@@ -1,35 +1,49 @@
 /* Global Formatting */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+/* Orbitron for titles/headers - strong TRON feel. */
+/* Share Tech Mono for body text - more readable monospace, still techy. */
 
 :root {
-  --bg-color: #0a0f1f;
-  --primary-color: #1a2238;
-  --text-color: #eaeaea;
-  --accent-color: #5edfff;
-  --border-color: #00c0ff;
-  --link-color: #00c0ff;
+  /* TRON: Legacy Color Palette */
+  --bg-color-dark: #000a1a;        /* Deep, almost black blue-dark base */
+  --bg-color-light: #001f3f;       /* Slightly lighter blue-dark for gradient */
+  --primary-color: #00152b;        /* Dark blue for main elements, very subtle difference */
+  --text-color: #d0e0ff;           /* Soft, light blue-white for main text */
+  --accent-blue: #00e0ff;          /* Vibrant TRON blue for accents/glow */
+  --accent-orange: #ff8c00;        /* Bold TRON orange for secondary accents/links */
+  --border-color-blue: #0099ff;    /* Slightly less intense blue for borders */
+  --border-color-orange: #ff6600;  /* Slightly less intense orange for borders */
+  --border-color-white: #F0F8FF;   /* Alice Blue for a White glow for borders */
+  --link-color: var(--accent-orange); /* Links stand out in orange */
 }
 
 html {
-  font-family: 'VT323', monospace; /* Monospace is the appropriate fallback here */
-  background-color: var(--bg-color);
+  /* Subtle diagonal gradient background */
+  background: linear-gradient(135deg, var(--bg-color-dark) 0%, var(--bg-color-light) 100%);
+  min-height: 100vh; /* Ensure gradient covers full viewport height */
+  background-attachment: fixed; /* Fixes gradient so it doesn't scroll with content */
+  font-family: 'Share Tech Mono', monospace; /* More readable for body */
   color: var(--text-color);
-  text-align: center;
 }
 
 /* Header */
 header {
   display: flex;
-  justify-content: center; /* Horizontally centers the content of the header */
-  align-items: center; /* Vertically centers content within the header */
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  font-family: 'Orbitron', sans-serif; /* Distinct TRON font for header */
   font-size: 3.75em;
-  font-weight: bold;
+  font-weight: 700; /* Use heavier weight if available for Orbitron */
   position: relative;
+  /* padding and margins are explicitly removed */
 }
 
 header img {
   max-width: 1.5em;
   height: auto;
+  /* Filter to turn SVG white to match text */
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(270deg) brightness(100%) contrast(100%);
 }
 
 /* Navigation */
@@ -37,67 +51,78 @@ nav {
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
+  width: 200px;
   height: 100vh;
-  border-left: 0.09em solid var(--border-color);
+  border-left: 0.09em solid var(--border-color-blue);
+  box-shadow: -0.2em 0 0.8em rgba(0, 224, 255, 0.5); /* Blue glow on left edge */
   background-color: var(--primary-color);
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  font-size: 0.45em;
+  font-size: 0.25em;
   z-index: 10;
+  display: flex; /* Nav is a flex container */
+  flex-direction: column; /* Stack nav items vertically */
 }
 
 nav a, nav li, nav img {
-  display: block;
+  display: block; /* Ensure each nav item takes its own line */
   font-size: inherit;
-  color: var(--link-color);
+  color: var(--text-color); /* Nav text subtle light blue */
   max-width: 100%;
   text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
+  /* Added a small padding inside nav links for better click area/visuals */
+  padding: 0.5em 0.2em;
 }
 
 /* Main */
 main {
-  display: block;
-  justify-content: space-between; /* Keeps original justify for main content */
-  align-items: left; /* Keeps original align for main content */
-  border: 0.10em solid var(--accent-color);
+  display: inline;
+  justify-content: space-between; /* Keep original spacing logic */
+  align-items: flex-start; /* Aligns items to the start vertically */
   background-color: var(--primary-color);
-  font-size: 2em;
-  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace; /* Consistent body font */
+  font-size: 1.5em;
   position: relative;
-  margin: .85em; /* Added to horizontally center a 'width: fit-content' block element */
+  width: fit-content;
+  margin-inline: auto; /* Centers the main content block */
+  /* padding and margins are explicitly removed */
 }
 
 /* Footer */
 footer {
   display: block;
   position: relative;
-  border: 0.10em solid var(--accent-color);
+  border: 0.10em solid var(--border-color-orange); /* Footer border in blue */
+  box-shadow: 0 0 0.5em 0.1em rgba(0, 224, 255, 0.6); /* Blue glow for footer */
   background-color: var(--primary-color);
+  font-family: 'Share Tech Mono', monospace; /* Consistent body font */
   font-size: 1em;
   z-index: 20;
+  margin-inline: auto; /* Centers the footer block */
+  padding: .5em;
 }
 
 /* IDs */
-#header { /* This controls the img and text within the header */
-  display: flex;
-  align-items: center; /* Vertically aligns the image and text */
-  gap: 0.5em; /* Space between image and text */
+#header {
+  display: block;
+  position: relative;
+  border: 0.10em solid var(--border-color-white); /* Footer border in blue */
+  box-shadow: 0 0 0.5em 0.1em rgba(0, 224, 255, 0.6); /* Blue glow for footer */
+  background-color: var(--primary-color);
+  font-family: 'Share Tech Mono', monospace; /* Consistent body font */
+  font-size: 1em;
+  margin-inline: auto; /* Centers the footer block */
+  padding: .5em;
 }
 
-#nav { /* Ensure this is a flex container if its children need flex behavior */
-  display: flex;
-  flex-direction: column; /* Often good for vertical nav items */
-}
+/* #nav styles are integrated into the main nav block above */
 
 /* Classes */
 .dotImage {
   height: 50px;
   width: 50px;
-  background-color: white;
+  background-color: transparent; /* Changed to transparent */
   border-radius: 50%;
   display: inline-block;
+  border: 0.05em solid var(--accent-blue); /* Blue glow border */
+  box-shadow: 0 0 0.3em rgba(0, 224, 255, 0.8), /* Blue glow */
+              inset 0 0 0.2em rgba(0, 224, 255, 0.5); /* Inner glow */
 }

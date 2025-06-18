@@ -1,0 +1,117 @@
+/* Global Formatting */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* VT323 for retro terminal feel */
+/* Consider adding a secondary font for body text if VT323 is too hard to read for long passages, e.g., 'Source Code Pro' */
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap'); */
+
+:root {
+  --bg-color: #0a0f1f;       /* Deep dark blue/purple - classic terminal background */
+  --primary-color: #1a2238;  /* Slightly lighter dark blue/gray for primary sections */
+  --text-color: #e0e0e0;     /* Soft off-white/light gray for general text */
+  --accent-color: #00c0ff;   /* Vibrant cyan for accents and highlights */
+  --border-color: #008080;   /* Muted teal/cyan for borders, less harsh than full accent */
+  --link-color: #61afef;     /* Lighter, distinct blue for links (like 'bright blue' in terminals) */
+}
+
+html {
+  font-family: 'VT323', monospace; /* Primary "nerdy" font */
+  /* If VT323 is too much for body text, consider: font-family: 'Source Code Pro', 'VT323', monospace; */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center; /* Horizontally centers the content of the header */
+  align-items: center;    /* Vertically centers the content of the header */
+  border: 0.10em solid var(--border-color);
+  background-color: var(--primary-color);
+  font-size: 3.75em;
+  font-weight: bold; /* VT323 doesn't have true bold, but keep for other fonts */
+  position: relative;
+  /* padding and margins are explicitly removed based on previous request */
+}
+
+header img {
+  max-width: 1.5em;
+  height: auto;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  border-left: 0.09em solid var(--border-color);
+  background-color: var(--primary-color);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Slightly more prominent shadow for depth */
+  font-size: 0.45em;
+  z-index: 10;
+  /* padding and margins are explicitly removed based on previous request */
+}
+
+nav a, nav li, nav img {
+  display: block;
+  font-size: inherit;
+  color: var(--link-color);
+  max-width: 100%;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: var(--accent-color); /* Highlight links with the main accent color on hover */
+}
+
+/* Main */
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  border: 0.10em solid var(--accent-color); /* Main content border using the accent */
+  background-color: var(--primary-color);
+  font-size: 2em;
+  font-weight: bold; /* VT323 doesn't have true bold, but keep for other fonts */
+  position: relative;
+  width: fit-content;
+  margin-inline: auto; /* Centers the main content block */
+  /* padding and margins are explicitly removed based on previous request */
+}
+
+/* Footer */
+footer {
+  display: block;
+  position: relative;
+  border: 0.10em solid var(--accent-color); /* Footer border using the accent */
+  background-color: var(--primary-color);
+  font-size: 1em;
+  z-index: 20;
+  margin-inline: auto; /* Centers the footer block */
+  /* padding and margins are explicitly removed based on previous request */
+}
+
+/* IDs */
+#header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Space between header icon and text */
+}
+
+#nav {
+  display: flex;
+  flex-direction: column; /* Set nav items to stack vertically */
+  /* You might want to add some internal spacing here for nav items, e.g., gap: 0.2em; or padding-top/bottom to nav a */
+}
+
+/* Classes */
+.dotImage {
+  height: 50px;
+  width: 50px;
+  background-color: var(--text-color); /* Changed to text color for contrast */
+  border-radius: 50%;
+  display: inline-block;
+  border: 0.05em solid var(--accent-color); /* Added border for definition */
+}
